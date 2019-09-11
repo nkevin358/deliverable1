@@ -25,9 +25,9 @@ describe("InsightFacade Add/Remove Dataset", function () {
         validAndInvalid: "./test/data/validAndInvalid.zip",
         noValidSection: "./test/data/noValidSection.zip",
         noFiles: "./test/data/noFiles.zip",
-        wrongFormat: "./test/data/wrongFormat",
-        wrongName: "./test/data/wrongName",
-        cour__se: "./test/data/ cour__se",
+        wrongFormat: "./test/data/wrongFormat.zip",
+        wrongName: "./test/data/wrongName.zip",
+        cour__se: "./test/data/ cour__se.zip",
     };
     let datasets: { [id: string]: string } = {};
     let insightFacade: InsightFacade;
@@ -74,7 +74,7 @@ describe("InsightFacade Add/Remove Dataset", function () {
         });
 
     });
-    // Sept. 10: testing cases to addDataset, removeDataset, listDataset  Q: list of dataset
+    // Sept. 10: testing cases to addDataset, removeDataset, listDataset  Q: list of dataset; independent dataset; merge
     // 1. add a dataset of only one valid section
     it("Should add one valid section dataset", function () {
         const id: string = "oneValidSection";
