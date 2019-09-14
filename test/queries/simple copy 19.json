@@ -1,19 +1,19 @@
 {
-    "title": "uppercase dataset not added yet",
+    "title": "WHERE should have only one key",
     "query": {
         "WHERE": {
-            "GT": {
-                "courses_avg":97
-            }
-        },
-        "OPTIONS": {
             "COLUMNS": [
-                "COURSES_dept",
+                "courses_dept",
                 "courses_avg"
             ],
             "ORDER": "courses_avg"
-        }
-    },
+
+        },
+        "OPTIONS": {
+            "GT": {
+                "courses_avg":97
+            }
+    }},
     "isQueryValid": false,
     "result": "InsightError"
 }

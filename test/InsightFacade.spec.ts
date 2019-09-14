@@ -124,9 +124,9 @@ describe("InsightFacade Add/Remove Dataset", function () {
         const id: string = "noValidSection";
         const expected: string[] = [id];
         return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then((result: string[]) => {
-            expect(result).to.be.instanceOf(InsightError);
+            expect.fail(result, InsightError, "Should have rejected");
         }).catch((err: any) => {
-            expect.fail(err, expected, "Should not have rejected");
+            expect(err).to.be.instanceOf(InsightError, "invalid");
         });
 
     });
@@ -135,9 +135,9 @@ describe("InsightFacade Add/Remove Dataset", function () {
         const id: string = "noFiles";
         const expected: string[] = [id];
         return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then((result: string[]) => {
-            expect(result).to.be.instanceOf(InsightError);
+            expect.fail(result, InsightError, "Should have rejected");
         }).catch((err: any) => {
-            expect.fail(err, expected, "Should not have rejected");
+            expect(err).to.be.instanceOf(InsightError, "invalid");
         });
 
     });
@@ -146,9 +146,9 @@ describe("InsightFacade Add/Remove Dataset", function () {
         const id: string = "wrongFormat";
         const expected: string[] = [id];
         return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then((result: string[]) => {
-            expect(result).to.be.instanceOf(InsightError);
+            expect.fail(result, InsightError, "Should have rejected");
         }).catch((err: any) => {
-            expect.fail(err, expected, "Should not have rejected");
+            expect(err).to.be.instanceOf(InsightError, "invalid");
         });
 
     });
@@ -156,9 +156,9 @@ describe("InsightFacade Add/Remove Dataset", function () {
         const id: string = "notJSON";
         const expected: string[] = [id];
         return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then((result: string[]) => {
-            expect(result).to.be.instanceOf(InsightError);
+            expect.fail(result, InsightError, "Should have rejected");
         }).catch((err: any) => {
-            expect.fail(err, expected, "Should not have rejected");
+            expect(err).to.be.instanceOf(InsightError, "invalid");
         });
 
     });
@@ -167,22 +167,22 @@ describe("InsightFacade Add/Remove Dataset", function () {
         const id: string = "wrongName";
         const expected: string[] = [id];
         return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then((result: string[]) => {
-            expect(result).to.be.instanceOf(InsightError);
+            expect.fail(result, InsightError, "Should have rejected");
         }).catch((err: any) => {
-            expect.fail(err, expected, "Should not have rejected");
+            expect(err).to.be.instanceOf(InsightError, "invalid");
         });
 
     });
-    // 8. failed added twice dataset w. same id
+    // 8. failed add twice dataset w. same id
     it("added twice dataset w. same id", function () {
         const id: string = "oneValidSection";
         const expected: string[] = [id];
         return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then(() => {
             return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses);
         }).then((result: string[]) => {
-            expect(result).to.be.instanceOf(InsightError);
+            expect.fail(result, InsightError, "Should have rejected");
         }).catch((err: any) => {
-            expect.fail(err, expected, "Should not have rejected");
+            expect(err).to.be.instanceOf(InsightError, "invalid");
         });
 
     });
@@ -191,9 +191,9 @@ describe("InsightFacade Add/Remove Dataset", function () {
         const id: string = "cour__se";
         const expected: string[] = [id];
         return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then((result: string[]) => {
-            expect(result).to.be.instanceOf(InsightError);
+            expect.fail(result, InsightError, "Should have rejected");
         }).catch((err: any) => {
-            expect.fail(err, expected, "Should not have rejected");
+            expect(err).to.be.instanceOf(InsightError, "invalid");
         });
 
     });
@@ -202,9 +202,9 @@ describe("InsightFacade Add/Remove Dataset", function () {
         const id: string = "noAudit";
         const expected: string[] = [id];
         return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then((result: string[]) => {
-            expect(result).to.be.instanceOf(InsightError);
+            expect.fail(result, InsightError, "Should have rejected");
         }).catch((err: any) => {
-            expect.fail(err, expected, "Should not have rejected");
+            expect(err).to.be.instanceOf(InsightError, "invalid");
         });
 
     });
@@ -213,9 +213,9 @@ describe("InsightFacade Add/Remove Dataset", function () {
         const id: string = "noAvg";
         const expected: string[] = [id];
         return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then((result: string[]) => {
-            expect(result).to.be.instanceOf(InsightError);
+            expect.fail(result, InsightError, "Should have rejected");
         }).catch((err: any) => {
-            expect.fail(err, expected, "Should not have rejected");
+            expect(err).to.be.instanceOf(InsightError, "invalid");
         });
 
     });
@@ -224,9 +224,9 @@ describe("InsightFacade Add/Remove Dataset", function () {
         const id: string = "noCourse";
         const expected: string[] = [id];
         return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then((result: string[]) => {
-            expect(result).to.be.instanceOf(InsightError);
+            expect.fail(result, InsightError, "Should have rejected");
         }).catch((err: any) => {
-            expect.fail(err, expected, "Should not have rejected");
+            expect(err).to.be.instanceOf(InsightError, "invalid");
         });
 
     });
@@ -235,9 +235,9 @@ describe("InsightFacade Add/Remove Dataset", function () {
         const id: string = "noFail";
         const expected: string[] = [id];
         return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then((result: string[]) => {
-            expect(result).to.be.instanceOf(InsightError);
+            expect.fail(result, InsightError, "Should have rejected");
         }).catch((err: any) => {
-            expect.fail(err, expected, "Should not have rejected");
+            expect(err).to.be.instanceOf(InsightError, "invalid");
         });
 
     });
@@ -246,9 +246,9 @@ describe("InsightFacade Add/Remove Dataset", function () {
         const id: string = "noPass";
         const expected: string[] = [id];
         return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then((result: string[]) => {
-            expect(result).to.be.instanceOf(InsightError);
+            expect.fail(result, InsightError, "Should have rejected");
         }).catch((err: any) => {
-            expect.fail(err, expected, "Should not have rejected");
+            expect(err).to.be.instanceOf(InsightError, "invalid");
         });
 
     });
@@ -257,9 +257,9 @@ describe("InsightFacade Add/Remove Dataset", function () {
         const id: string = "noProfessor";
         const expected: string[] = [id];
         return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then((result: string[]) => {
-            expect(result).to.be.instanceOf(InsightError);
+            expect.fail(result, InsightError, "Should have rejected");
         }).catch((err: any) => {
-            expect.fail(err, expected, "Should not have rejected");
+            expect(err).to.be.instanceOf(InsightError, "invalid");
         });
 
     });
@@ -268,9 +268,9 @@ describe("InsightFacade Add/Remove Dataset", function () {
         const id: string = "noSubject";
         const expected: string[] = [id];
         return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then((result: string[]) => {
-            expect(result).to.be.instanceOf(InsightError);
+            expect.fail(result, InsightError, "Should have rejected");
         }).catch((err: any) => {
-            expect.fail(err, expected, "Should not have rejected");
+            expect(err).to.be.instanceOf(InsightError, "invalid");
         });
 
     });
@@ -278,9 +278,9 @@ describe("InsightFacade Add/Remove Dataset", function () {
         const id: string = "notitle";
         const expected: string[] = [id];
         return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then((result: string[]) => {
-            expect(result).to.be.instanceOf(InsightError);
+            expect.fail(result, InsightError, "Should have rejected");
         }).catch((err: any) => {
-            expect.fail(err, expected, "Should not have rejected");
+            expect(err).to.be.instanceOf(InsightError, "invalid");
         });
 
     });
@@ -288,9 +288,9 @@ describe("InsightFacade Add/Remove Dataset", function () {
         const id: string = "noUUID";
         const expected: string[] = [id];
         return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then((result: string[]) => {
-            expect(result).to.be.instanceOf(InsightError);
+            expect.fail(result, InsightError, "Should have rejected");
         }).catch((err: any) => {
-            expect.fail(err, expected, "Should not have rejected");
+            expect(err).to.be.instanceOf(InsightError, "invalid");
         });
 
     });
@@ -298,9 +298,9 @@ describe("InsightFacade Add/Remove Dataset", function () {
         const id: string = "noYear";
         const expected: string[] = [id];
         return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then((result: string[]) => {
-            expect(result).to.be.instanceOf(InsightError);
+            expect.fail(result, InsightError, "Should have rejected");
         }).catch((err: any) => {
-            expect.fail(err, expected, "Should not have rejected");
+            expect(err).to.be.instanceOf(InsightError, "invalid");
         });
 
     });
@@ -309,9 +309,9 @@ describe("InsightFacade Add/Remove Dataset", function () {
         const id: string = "";
         const expected: string[] = [id];
         return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then((result: string[]) => {
-            expect(result).to.be.instanceOf(InsightError);
+            expect.fail(result, InsightError, "Should have rejected");
         }).catch((err: any) => {
-            expect.fail(err, expected, "Should not have rejected");
+            expect(err).to.be.instanceOf(InsightError, "invalid");
         });
 
     });
@@ -335,9 +335,9 @@ describe("InsightFacade Add/Remove Dataset", function () {
         const id: string = "notfoundyet";
         const expected: string[] = [id];
         return insightFacade.removeDataset(id).then((result: string) => {
-            expect(result).to.be.instanceOf(NotFoundError);
+            expect.fail(result, NotFoundError, "Should have rejected");
         }).catch((err: any) => {
-            expect.fail(err, expected, "Should not have rejected");
+            expect(err).to.be.instanceOf(NotFoundError, "invalid");
         });
 
     });
@@ -347,9 +347,9 @@ describe("InsightFacade Add/Remove Dataset", function () {
         const id: string = "  ";
         const expected: string[] = [id];
         return insightFacade.removeDataset(id).then((result: string) => {
-            expect(result).to.be.instanceOf(InsightError);
+            expect.fail(result, InsightError, "Should have rejected");
         }).catch((err: any) => {
-            expect.fail(err, expected, "Should not have rejected");
+            expect(err).to.be.instanceOf(InsightError, "invalid");
         });
 
     });
@@ -358,9 +358,9 @@ describe("InsightFacade Add/Remove Dataset", function () {
         const id: string = "Cour__ses";
         const expected: string[] = [id];
         return insightFacade.removeDataset(id).then((result: string) => {
-            expect(result).to.be.instanceOf(InsightError);
+            expect.fail(result, InsightError, "Should have rejected");
         }).catch((err: any) => {
-            expect.fail(err, expected, "Should not have rejected");
+            expect(err).to.be.instanceOf(InsightError, "invalid");
         });
 
     });
@@ -372,9 +372,9 @@ describe("InsightFacade Add/Remove Dataset", function () {
         return insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses).then(() => {
             return insightFacade.removeDataset(removeid);
         }).then((result: string) => {
-            expect(result).to.be.instanceOf(NotFoundError);
+            expect.fail(result, NotFoundError, "Should have rejected");
         }).catch((err: any) => {
-            expect.fail(err, expected, "Should not have rejected");
+            expect(err).to.be.instanceOf(NotFoundError, "invalid");
         });
 
     });
