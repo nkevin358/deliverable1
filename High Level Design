@@ -1,0 +1,13 @@
+The purpose of this document is to provide high level context on our implementation
+
+InsightFacade will act as a controller of sort and we will be able to call the four functions
+  1. adddataset
+      - Process and unzip "content"
+      - Add content to the Disk
+      - Add content to memory
+      - Update the Hashmap of InsightData
+      - Return Ids in the Hashmap
+  2. removedataset - TODO
+  3. performquery - TODO
+  4. listdataset - TODO
+  
